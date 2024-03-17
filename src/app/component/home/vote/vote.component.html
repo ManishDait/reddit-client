@@ -1,0 +1,6 @@
+<div class="d-flex flex-column gap-4 h-100 w-100 align-items-center justify-content-center">
+    <fa-icon [icon]="faUpArrow"  style="cursor: pointer;" (click)="upVote()" [ngClass]="post.upVote? 'vote_mark': 'text-secondary'"></fa-icon>
+    
+    <p class="m-0 text-secondary">{{post.voteCount}}</p>
+    <fa-icon [icon]="faDownArrow" style="cursor: pointer;" (click)="downVote()" [ngClass]="post.downVote? 'vote_mark': 'text-secondary'"></fa-icon>
+</div>

@@ -1,0 +1,20 @@
+header {
+    border-radius: 1px solid;
+}
+
+.reddit-icon {
+    height: 50px;
+    width: 50px;
+    padding: 8px 8px 8px 0px;
+}
+
+.reddit-text {
+    font-weight: 500;
+    height: 50px;
+    width: 50px;
+    color: #FF4500;
+}
+
+.logo {
+    text-decoration: none;
+}

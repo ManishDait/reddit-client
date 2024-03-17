@@ -1,0 +1,59 @@
+<div class="vw-100 px-5 py-2 d-flex">
+    <div class="post-container d-flex flex-column flex-grow-1 gap-2 align-items-end px-2 w-50">
+        <div class="card px-4 mb-2">
+            <div class="row no-gutters">
+                <div class="col-md-1">
+                    <app-vote [post]="post"></app-vote>
+                </div>
+        
+                <div class="col-md-11">
+                    <div class="card-body">
+                        <div class="d-flex gap-1 m-0 p-0">
+                            <p class="card-text m-0 p-0 fw-semibold"><small>r/{{post.subredditName}}. </small></p>
+                            <p class="card-text text-body-secondary m-0 p-0"><small>Posted by {{post.username}}. </small></p>
+                            <p class="card-text text-body-secondary m-0 p-0"><small>{{post.duration}}</small></p>
+                        </div>
+                        <hr>
+                        <h1 class="card-title mb-2">{{post.postName}}</h1>
+                        <p class="card-text text-body-secondary" [innerHTML]="post.description">{{post.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="side-container d-flex flex-column gap-2 flex-grow-1 px-2 ">
+        <div class="card">
+            <div class="mt-1">
+                <div class="card-header">
+                    <p>Comments</p>
+                </div>
+                @if (comments.length == 0) {
+                    <div class="card px-3 py-2 border-0">
+                        <p class="card-text text-body-secondary"><small>Do not have any Comments till now.</small></p>
+                    </div>
+                }
+                @for (comment of comments; track comment.id) {
+                    <div class="card px-2 py-2 mb-2 border-0">
+                        <p class="card-text m-0 p-0 fw-semibold text-primary"><small>{{comment.username}}</small></p>
+                        <p class="card-text text-body-secondary m-0 p-0">{{comment.text}}</p>
+                        <p class="card-text text-body-secondary m-0 p-0"><small>{{comment.duration}}</small></p>
+                    </div>
+                    <hr>
+                }
+                <div class="px-2 py-2 m-0">
+                    <form class="row g-3" [formGroup]="commentForm" (ngSubmit)="onComment()">
+                        <div class="d-flex">
+                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Express your thought" formControlName="text">
+                            <button type="submit" class="btn fill-bttn ms-2">Comment</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+

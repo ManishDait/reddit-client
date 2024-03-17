@@ -1,0 +1,4 @@
+@import url(../create-subreddit/create-subreddit.component.css);
+select {
+    text-align: left !important;
+}

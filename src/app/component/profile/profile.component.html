@@ -1,0 +1,53 @@
+<div class="vw-100 d-flex py-3 px-3">
+    <div class="post-container d-flex flex-column flex-grow-1 gap-2 px-2">
+        <div class="card px-2 py-2">
+            <div class="d-flex gap-2">
+                <div class="d-flex align-items-center flex-grow-1 gap-2">
+                    <img ngxGravatar [md5Hash]="username" width="10" height="10"/>
+                    <p class="m-0">{{username}}</p>
+                </div>
+
+                <div>
+                    <button class="btn fill-bttn mt-2" (click)="logout()">Logout</button>
+                </div>
+            </div>
+            <hr>
+            <p class="m-0 mb-2"><span class="fw-semibold">Number of Posts:</span> {{posts.length}}</p>
+            <p class="m-0 m-b2"><span class="fw-semibold">Number of Comments made:</span> {{comments.length}}</p>
+            
+        </div>
+
+        <div>
+            <hr>
+            <h5 class="ms-2">Your Comments</h5>
+            @if (comments.length == 0) {
+                <div class="card px-3 py-2 border-0">
+                    <p class="card-text text-body-secondary"><small>Do not have any Comments till now.</small></p>
+                </div>
+            }
+            @for (comment of comments; track comment.id) {
+                <div class="card px-2 py-2 mb-2">
+                    <p class="card-text text-primary m-0 p-0"><small>{{comment.duration}}</small></p>
+                    <p class="card-text text-body-secondary m-0 p-0">{{comment.text}}</p>
+                </div>
+            }
+        </div>
+    </div>
+    
+
+    <div class="side-container d-flex flex-column gap-2 flex-grow-1 px-2 w-50">
+        <div class="d-flex flex-column gap-2">
+            <h5 class="ms-2">Your Posts</h5>
+            @if (posts.length == 0) {
+                <div class="card w-75">
+                    <p class="list-group-item text-secondary w-100 m-0 text-center fw-semibold py-3">No Posts available...</p>
+                </div>
+                
+            }
+            @for(post of posts; track post.id) {
+                <app-post class="w-10" [post]="post"></app-post>
+            }
+        </div>
+        
+    </div>
+</div>

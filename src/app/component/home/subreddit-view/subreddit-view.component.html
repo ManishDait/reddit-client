@@ -1,0 +1,11 @@
+<div class="card" style="width: 20rem;">
+    <div class="card-header">
+        <h6 class="card-title">Browse Subreddit</h6>
+      </div>
+      <ul class="list-group list-group-flush">
+        @for (subreddit of subreddits; track subreddit.id) {
+          <li class="list-group-item text-primary" (click)="navigateToSubreddit(subreddit)" style="text-decoration: none; cursor: pointer;">r/{{subreddit.name}}</li>
+        }
+        <li class="list-group-item text-primary"><a routerLink="/list-subreddit" style="text-decoration: none; cursor: pointer;">View All</a></li>
+      </ul>    
+</div>

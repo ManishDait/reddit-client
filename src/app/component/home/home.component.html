@@ -1,0 +1,18 @@
+<div class="vw-100 d-flex px-5 py-2">
+    <div class="post-container d-flex flex-column flex-grow-1 gap-2 align-items-end px-2 w-50">
+        @if (posts.length == 0) {
+            <div class="card w-75">
+                <p class="list-group-item text-secondary w-100 m-0 text-center fw-semibold py-3">No Posts available...</p>
+            </div>
+            
+        }
+        @for(post of posts; track post.id) {
+            <app-post class="w-75" [post]="post"></app-post>
+        }
+    </div>
+
+    <div class="side-container d-flex flex-column gap-2 flex-grow-1 px-2">
+        <app-sidebar></app-sidebar>
+        <app-subreddit-view [subreddits]="subreddits.slice(0,3)"></app-subreddit-view>
+    </div>
+</div>
