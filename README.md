@@ -1,27 +1,46 @@
-# RedditClient
+# Reddit-Clone Angular Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
+This project is a frontend client for Reddit-Clone built with Angular, designed to resemble the popular social media platform Reddit.
 
-## Development server
+## Setup
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+To set up the Reddit-Clone-Client, follow these steps:
 
-## Code scaffolding
+1. **Clone the Repository**: 
+    ```bash
+    git clone https://github.com/ManishDait/reddit-clone-client.git
+    ```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. **Install Dependencies**:
+    Navigate to the project directory and install the necessary dependencies using npm:
+    ```bash
+    cd reddit-clone-client
+    npm install
+    ```
 
-## Build
+3. **Configure API Keys**:
+    Create a `environment.development.ts` and `environment.ts` file in the `src/environments` directory and copy the content of `enviroment.example.ts`.
+    ```ts
+    export const environment = {
+    // <-- production: true --> for environment.ts && <-- productiion: false --> for environment.development.ts
+    production: true,
+      API_ENDPOINT: "http://localhost:8080/api",
+      AUTH_PATH: "/auth",
+      POSTS_PATH: "/post",
+      SUBREDDIT_PATH: "/subreddit",
+      COMMENT_PATH: "/comment",
+      VOTE_PATH: "/vote",
+      TINYMCE_API_KEY: "<your-api-key-here>" 
+    };
+    ```
+    Add the [Tinymce](https://www.tiny.cloud/) api key in `TINYMCE_API_KEY`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+5. **Run the Application**:
+    Start the Angular development server by running:
+    ```bash
+    ng serve -o
+    ```
 
-## Running unit tests
+6. **Access the Application**:
+    Once the server is running, access the Reddit-Clone Angular Frontend in your web browser at `http://localhost:4200`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
